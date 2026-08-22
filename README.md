@@ -28,9 +28,21 @@
 Это утилита для собственной рабочей учётки и разрешённого внутреннего API.
 Не предполагаются массовые автоизменения без явного действия пользователя.
 
+## Что уже добавлено
+
+- `appsettings.example.json` с заготовкой секции `Tfs`;
+- `TfsOptions` для настроек подключения;
+- `TsApiClient` для read-only вызовов внутреннего `tsapi`;
+- модели `TimeSheetEntryDto` и `OperatorTimeSummaryDto`;
+- PoC endpoints:
+  - `GET /health`
+  - `GET /poc/notes`
+  - `GET /poc/tsapi/entries/{workItemId}`
+  - `GET /poc/tsapi/operators/{workItemId}`
+
 ## Следующие шаги
 
-- добавить конфиг подключения;
-- добавить `HttpClient`-каркас;
-- добавить модели `WorkItem` / `TimeSheetEntry`;
-- сделать первую read-only страницу.
+- заполнить локальный конфиг подключения к TFS;
+- проверить аутентификацию до `tsapi` из .NET приложения;
+- добавить чтение списка work items через стандартный TFS API;
+- подготовить безопасный write PoC для `CUD_WI_TimeSheetByAD`.
